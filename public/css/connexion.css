@@ -41,7 +41,7 @@
     height: 35px;
     width: 300px;
     border:none;
-    background-color: white;
+    background-color: rgb(243, 253, 232);
     -webkit-appearance: none;
     appearance: none;
     border-radius: 6px;
@@ -65,4 +65,12 @@
     color: white;
     background-color: rgb(0, 193, 157);
     border-radius: 15px;
+}
+/*------------------------formulaire d'ajout----------------------*/
+#date select{
+    height: 35px;
+    border:none;
+    background-color: rgb(144, 225, 221);
+    appearance: none;
+    border-radius: 6px;
 }
