@@ -18,20 +18,19 @@ selection.addEventListener('click',function(){
         mdp.type='password'
     }
 })
+
 function verif(a,b){
+    console.log('1')
     if(a==0){
-        mail.style.borderColor='red'
+        mail.style.border='red 1px solid'
         u=0
+        
     }
     if(b==0){
-        mdp.style.borderColor='red'
+        mdp.style.border='red 1px solid'
         u=0
     }
     if(u==0){
         event.preventDefault()
     }
-    if(a==1 && b==1){
-
-    }
-    
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php require_once('controller/function.php');
+<?php require_once('./c controller/function.php');
 require_once('controller/medecin.php');
 ?>
 <html lang="fr">
@@ -11,31 +11,33 @@ require_once('controller/medecin.php');
     <title>acceuille</title>
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="connexion.php">connexion</a>
-            <a href="listing.php">listing</a>
-            <a href="profil.php">profil</a>
-        </nav>
-    </header>
-    <div id="block">
-        <p>connexion</p>
-        <form action="connextrait.php" method="POST">
-            <div class="m">
-                <span>mail:</span>
-                <input type="text" name="mail" id="mail">
-            </div>
-            <div class="m">
-                <span>mot de passe:</span>
-                <input type="password" name="mdp" id="mdp">
-            </div>
-            <div class="p">
-                <input type="checkbox" name="selection" id="selection">
-                <label for="selection" id="aficher">afficher</label>
-                <label for="selection" id="masque">masquer</label>
-            </div>
-            <input type="submit" id="envoyer" value="envoyer" onclick="verif(<?php echo verification()[0]?>,<?php echo verification()[1]?>)">
-        </form>
+    <div id="bock">
+        <header>
+            <nav>
+                <a href="connexion.php">connexion</a>
+                <a href="listing.php">listing</a>
+                <a href="profil.php">profil</a>
+            </nav>
+        </header>
+        <div id="block">
+            <p>connexion</p>
+            <form action="connextrait.php" method="POST">
+                <div class="m">
+                    <span>mail:</span>
+                    <input type="text" name="mail" id="mail">
+                </div>
+                <div class="m">
+                    <span>mot de passe:</span>
+                    <input type="password" name="mdp" id="mdp">
+                </div>
+                <div class="p">
+                    <input type="checkbox" name="selection" id="selection">
+                    <label for="selection" id="aficher">afficher</label>
+                    <label for="selection" id="masque">masquer</label>
+                </div>
+                <input type="submit" id="envoyer" value="envoyer" onclick="verif(<?php echo verification()[0]?>,<?php echo verification()[1]?>)">
+            </form>
+        </div>
     </div>
     <script src="public/javascript/connexion.js"></script>
 </body>

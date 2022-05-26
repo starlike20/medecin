@@ -1,75 +1,68 @@
-body{
+#logo{
     position: absolute;
+    top: 10px;
+    left:10px;
+    color:rgb(255, 2, 103);
+    font-size: 20px;
+}
+/*---------------------------------ttraille sur la description description-------------------------*/
+#description{
+    position: absolute;
+    background-color: rgb(0, 193, 157);
+    left: 0px;
+    top:0px;
     height: 100%;
-    width: 100%;
-    background-color: rgb(0, 255, 153);
+    width: 40%;
+    color: white;
+    text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
 }
-#block{
+/*--------------------------traville sur connec----------------------*/
+#connec{
+    position: absolute;
+    background-color: white;
+    top:0px;
+    right: 0px;
+    width: 60%;
+    height: 100%;
+    text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    height: 500px;
-    width: 500px;
-    background-color: rgb(255, 255, 255);
+    justify-content: center;
 }
-header{
-    position: absolute;
-    top:-9px;
-    left: -9px;
-    background-color: black;
-    height: 80px;
-    width: 100%;
+#title{
+    color: rgb(0, 193, 157);
 }
-nav{
-    position: absolute;
-    top:50px;
-    display: flex;
-    color: white;
-    justify-content: space-between;
-    width: 300px;
-}
-a{
-    background-color: rgb(24, 131, 185);
-    width: 100px;
-    height: 20px;
-    border: black solid ;
-}
-form{
-    display: flex;
-    flex-direction: column;
-    width: 400px;
-}
-.m,input{
-    width: 400px;
-}
-p{
-    color: rgb(43, 0, 255);
-    font-size: 40px;
-}
-.p{
-    display: flex;
-    flex-direction: row;
-}
-.m{
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-#selection{
+.m input{
     position: relative;
-    left: -190px;
-    margin-bottom: 10px;
+    margin: 20px;
+    height: 35px;
+    width: 300px;
+    border:none;
+    background-color: white;
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 6px;
 }
+/* ------------------ aficher et masque la  check box------------------------*/
 #aficher{
     position: absolute;
-    left: 600px;
+    left: 470px;
     visibility: hidden;
 }
 #masque{
     position: absolute;
-    left: 600px;
+    left: 470px;
+}
+/*----------------------travaille sur le logo------------------------*/
+#envoyer{
+    position: relative;
+    margin: 20px;
+    height: 35px;
+    width: 100px;
+    color: white;
+    background-color: rgb(0, 193, 157);
+    border-radius: 15px;
 }

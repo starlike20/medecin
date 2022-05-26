@@ -21,5 +21,8 @@
             }
             return $t;
         }
+        else{
+            return $t=[0,0];
+        }
     }
 ?>
