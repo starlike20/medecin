@@ -1,11 +1,15 @@
 let année=document.getElementById("année")
 let jour=document.getElementById("jour")
+let jours=document.getElementsByClassName("jours")
+jours.innerHTML=null
 let date
 let a
 let years
 let imois
 let p
 let n
+let taille=document.getElementById("taille")
+let poid=document.getElementById("poid")
 const d = new Date();
 let year = d.getFullYear();
 m=year-1950
@@ -41,7 +45,7 @@ function getmois(){
             }
         };
         for(let i=1 ;i<=n;i++){
-            jour.innerHTML+="<option>"+i+"</option>"
+            jour.innerHTML+="<option class='jours'>"+i+"</option>"
         }
         return imois
     }
@@ -49,3 +53,25 @@ function getmois(){
         imois=-1
     }
 }
+function verfimg(nom){
+    let image=document.getElementById("image")
+    if(nom==0){
+        image.style.border='red'
+    }
+    else{
+        image.style.border='green'
+    }
+}
+taille.addEventListener('keyup',function(){
+    console.log("1")
+    if(taille.value==Number){}
+    else{
+        taille.parentElement.innerHTML+="<p> veillez entrez une valeur entiere </p>"
+    }
+})
+poid.addEventListener('keyup',function(){
+    if(poid.value==Number){}
+    else{
+        poid.parentElement.innerHTML+="<p> veillez entrez une valeur entiere </p>"
+    }
+})

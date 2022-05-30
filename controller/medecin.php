@@ -40,6 +40,16 @@
             }
             return $t;
         }
+        public function getidimage($i){//avoir l'id de l'image en fonction de l'id
+            global $connexion;
+            $requet="SELECT`id_image` FROM `medecin`Where `id`=".$i."";
+            $result= $connexion->query($requet);
+            $t[0]=0;
+            while($a=$result->fetch_array(MYSQLI_ASSOC)){
+                $t=$a['id_image'];
+            }
+            return $t;
+        }
         public function ajoutemedecin($nom,$prenom,$mail,$mdp){//ajouter un medecin
             global $connexion;
             $requet="INSERT INTO `medecin`(`id`, `nom`, `prenom`, `e-mail`, `mdp`)

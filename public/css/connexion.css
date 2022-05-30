@@ -74,3 +74,15 @@
     appearance: none;
     border-radius: 6px;
 }
+/*---------------------gestion du profil-----------------*/
+.profil{
+    position: absolute;
+    top:50px;
+    margin: 10px;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

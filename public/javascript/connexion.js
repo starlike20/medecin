@@ -4,6 +4,8 @@ let afficher=document.getElementById('aficher')
 let masquer=document.getElementById('masque')
 let selection=document.getElementById('selection')
 let envoyer=document.getElementById('envoyer')
+let pu=document.getElementById('')
+let t=["@","."]
 selection.addEventListener('click',function(){
     if(selection.checked==true){
         // masquer.style.display='none'
@@ -18,7 +20,17 @@ selection.addEventListener('click',function(){
         mdp.type='password'
     }
 })
-
+mail.addEventListener('keyup',function(){
+    let n=mail.value
+    let error=document.getElementsByClassName('error')
+    error.innerHTML=null
+    if(n.includes(' ')){
+        mail.parentElement.innerHTML+="<p class='error'>entrez un mail valide</p>"
+    }
+    else if(n.includes('@') && n.includes('.')){
+        mail.parentElement.innerHTML+="<p class='error'>mail correcte</p>"
+    }
+})
 function verif(a,b){
     console.log('1')
     if(a==0){

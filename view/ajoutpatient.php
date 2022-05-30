@@ -14,13 +14,13 @@ require_once('../controller/patient.php');
 <body>
     <div id="description">
         <h1> bienvenue sur </h1>
-        <h1> page d'ajout d'un patient </h1>
+        <h2> page d'ajout d'un patient </h2>
         <p>veillez entrez les information relative a votre patient</p>
         <p>a fin de facilité la gestion</p>
     </div>
     <div id="connec">
         <h1 id="title">ajout des patient</h1>
-            <form action="connextion.trait.php" method="POST">
+            <form action="connextion.trait.php" method="POST" enctype="multipart/form-data">
                 <div class="m">
                     <input type="text" name="nom" id="nom" placeholder="nom">
                 </div>
@@ -54,10 +54,13 @@ require_once('../controller/patient.php');
                     </select>
                 </div>
                 <div class="m">
-                    <input type="float" name="taille" id="taille" placeholder="taille">
+                    <input type="text" name="taille" id="taille" placeholder="taille">
                 </div>
                 <div class="m">
-                    <input type="float" name="poid" id="poid" placeholder="poid">
+                    <input type="text" name="poid" id="poid" placeholder="poid">
+                </div>
+                <div class="m">
+                    <input type="file" name="image" id="image" placeholder="image" onchange=" verfimg(<?php echo traiteimage()?>)">
                 </div>
                 <input type="submit" id="envoyer" value="envoyer">
             </form>

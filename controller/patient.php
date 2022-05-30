@@ -57,12 +57,21 @@
             }
             return $t;
         }
-        public function getidme($i){
+        public function getidme($i){//avoir l'id du medecin en fonction de l'id
             global $connexion;
             $requet="SELECT`id_medecin` FROM `patient`Where `id`=".$i."";
             $result= $connexion->query($requet);
             while($a=$result->fetch_array(MYSQLI_ASSOC)){
                 $t=$a['id_medecin'];
+            }
+            return $t;
+        }
+        public function getid_image($i){//avoir l'id de l'image en fonction de l'id
+            global $connexion;
+            $requet="SELECT`id_image` FROM `patient`Where `id`=".$i."";
+            $result= $connexion->query($requet);
+            while($a=$result->fetch_array(MYSQLI_ASSOC)){
+                $t=$a['id_image'];
             }
             return $t;
         }
@@ -79,7 +88,7 @@
         }
         public function ajoutpatient($nom,$prenom,$mail,$dtdenais,$poid,$taille,$id_med){//ajouter un patient
             global $connexion;
-            $requet="INSERT INTO `patient`(`id`, `nom`, `prenom`, `e-mail`, `date de naissance`, `poid`, `taille`, `id_medecin`)
+            $requet="INSERT INTO `patient`(`nom`, `prenom`, `e-mail`, `date de naissance`, `poid`, `taille`, `id_medecin`)
             VALUES('".$nom."','".$prenom."','".$mail."','".$dtdenais."','".$poid."','".$taille."','".$id_med."')";
             $result= $connexion->query($requet);
         }
