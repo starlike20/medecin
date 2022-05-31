@@ -1,8 +1,7 @@
 <?php
-    require_once('medecin.php');
-    require_once('patient.php');
-    require_once('image.php');
-
+    require_once('../controller/medecin.php');
+    require_once('../controller/patient.php');
+    require_once('../controller/image.php');
     $med=new medecin();
     $image=new image();
 
@@ -12,7 +11,8 @@
             $mail=$_POST['mail'];
             $mdp=$_POST['mdp'];
             $n=$med->tablemed();
-            $t=[0,0]; 
+            $t[0]=0; 
+            $t[1]=0;
             foreach($n as $cles=>$valeur){
                 if($mail==$med->getemail($valeur)){
                     $t[0]=1;

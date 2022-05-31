@@ -27,7 +27,7 @@ require_once('../controller/patient.php');
     </div>
     <div id="recherche">
             <div>
-                <input type="text" placeholder="search">
+                <input type="text" id="rechercher" placeholder="search">
                 <img src="../public/image/loupe.png">
             </div>
         </div>
@@ -38,15 +38,14 @@ require_once('../controller/patient.php');
                 <tr>
                     <td><img class="image" src="../public/image/patient_589302497_1000.jpg"></img></td>
                     <div class="information">
-                        <td><div><?php echo $patient->getnom($valeur) ?></div></td>
-                        <td><div><?php echo $patient->getprenom($valeur) ?></div></td>
-                        <td><div><?php echo $patient->getmail($valeur) ?></div></td>
+                        <td><div id="nom"><?php echo $patient->getnom($valeur) ?></div></td>
+                        <td><div id="prenom"><?php echo $patient->getprenom($valeur) ?></div></td>
+                        <td><div id="mail"><?php echo $patient->getmail($valeur) ?></div></td>
                         <td><div><?php echo $patient->getdatedenai($valeur) ?></div></td>
                         <td><div id="taille-<?php echo $valeur?>" class="taille"><?php echo $patient->gettaille($valeur) ?></div></td>
                         <td><div id="poid-<?php echo $valeur?>" class="poid"><?php echo $patient->getpoid($valeur) ?></div></td>
                         <td><div id="imc-<?php echo $valeur?>" class="imc"></div></td>
-                        <td><div><a href="ajouter.php">ajouter</a></div></td>
-                        <td><div><a href="modifier.php">modifier</a></div></td>
+                        <td><div><a href="modifier.php?"id_patient=<?php echo $valeur?>>modifier</a></div></td>
                         <td><div><a href="supprimer.php?id_patient=<?php echo $valeur?>">supprimer</a></div></td>
                         <?php $i++ ?>
                     </div>

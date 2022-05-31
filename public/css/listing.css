@@ -1,3 +1,4 @@
+/*---------------------------------body---------------------*/
 body{
     background-image: url('../image/patient_589302497_1000.jpg');
     background-repeat: no-repeat;
@@ -5,6 +6,10 @@ body{
     width: 100%;
     height: 100%;
 }
+a{
+    text-decoration: none;
+}
+/*--------------------------le degradé-----------------------*/
 #block{
     position: absolute;
     top:0px;
@@ -14,6 +19,7 @@ body{
     background: linear-gradient(70deg,rgb(20, 0, 255),rgb(80, 255, 54));
     opacity: 40%;
 }
+/*-------------------------l'entête de base--------------------------*/
 header{
     position: absolute;
     left: 0px;
@@ -49,9 +55,10 @@ nav a{
 #la{
     background-color: rgb(137, 54, 65);
 }
+/*----------------le changement apres le scole------------*/
 .deplamentheader{
     position: fixed;
-    background-color: rgb(116, 170, 191);
+    background-color: rgb(30, 87, 109);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -69,6 +76,9 @@ nav a{
     color: rgb(255, 2, 103);
     margin: 20px;
 }
+.deplacemnta{
+    background-color: rgb(0, 193, 157);
+}
 @keyframes change{
     to{
         background-color:rgb(116, 170, 191);
@@ -85,6 +95,7 @@ nav a{
         height: 100%;
     }
 }
+/*----------------------------------------------les composant patient--------------------------*/
 #patient{
     position: absolute;
     top:450px;
@@ -148,7 +159,15 @@ nav a{
 }
 #recherche div input{
     width: 200px;
-    height: 25px;
+    height: 28px;
+    border:none;
+    background-color: rgb(243, 253, 232);
+    -webkit-appearance: none;
+    appearance: none;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
+}
+/*---------------------------none--------------------------------*/
+.nono{
+    display: none;
 }
