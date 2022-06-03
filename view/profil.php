@@ -8,8 +8,6 @@ require_once('../controller/image.php');
 $image=new image;
 $medecin=new medecin;
 session_start();
-$_SESSION['id']="1";
-$id=$_SESSION['id'][0];
 ?>
 <head>
     <meta charset="UTF-8">
@@ -18,6 +16,20 @@ $id=$_SESSION['id'][0];
     <link rel="stylesheet"  href="../public/css/connexion.css">
 </head>
 <body>
+    <?php if(empty($_SESSION)){
+            header('location:./connexion.php');
+        }
+        $id=$_SESSION['id'][0]
+        ?>
+    <header>
+        <p id="p">starlike</p>
+        <nav>
+            <a href="connexion.php">connexion</a>
+            <a href="listing.php">listing</a>
+            <a href="ajoutpatient.php">ajout</a>
+            <a href="profil.php" id="la">profil</a>
+        </nav>
+    </header>
     <div id="description">
         <?php if($medecin->getidimage($id)==0):?>
             <p class="profil">
@@ -26,11 +38,14 @@ $id=$_SESSION['id'][0];
                 ?>
             </p>
         <?php else:?>
-            <img src="../public/image/<?php echo $image->getnom($medecin->getidimage($id))?>">
+            <img src="../public/image/<?php echo $image->getnom($medecin->getidimage($id))?>" class="profil">
         <?php endif?>
-        <h1> bienvenue sur votre profil </h1>
-        <h2>vous pouvez consulter ,modifier</h2>
-        <p>vos information quand vous le souhaitez</p>
+        <div>
+            <h1> bienvenue sur votre profil </h1>
+            <h2>vous pouvez consulter ,modifier</h2>
+            <p>vos information quand vous le souhaitez</p>
+            <a id="deconnection" href="deconnection.php">deconnection</a>
+        </div>
     </div>
     <div id="connec">
     <h1 id="title">profil</h1>
@@ -47,12 +62,38 @@ $id=$_SESSION['id'][0];
             <div class="m">
                 <input type="password" name="mdp" id="mdp" placeholder="password" value="<?php echo $medecin->getmdp($id)?>">                
             </div>
-            <input type="submit" id="enregistré" value="enregistré">
+            <input type="submit" id="envoyer" value="enregistré">
         </form>
 </body>
 <style>
     .profil{
         background-color: rgb(<?php echo rand(150,255) ?>, <?php echo rand(150,255) ?>, <?php echo rand(150,255) ?>);
+    }
+    #description{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #description div{
+        position: absolute;
+        top:400px
+    }
+    #deconnection{
+        display: inline-block;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        margin-left: 100px;
+        margin-top: 130px;
+        height: 35px;
+        width: 100px;
+        color: rgb(0, 193, 157);
+        background-color: white;
+        border-radius: 15px;
+        text-align: center;
+        text-decoration: none;
     }
 </style>
 </html>

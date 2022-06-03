@@ -5,10 +5,10 @@ const p=document.querySelector('p')
 let nav=document.querySelector('nav')
 let hea=document.querySelector('header')
 let b=document.querySelectorAll('nav a')
-let patients=document.querySelectorAll('#patients')
-let mails=document.querySelectorAll('#mail')
-let nom=document.querySelectorAll('#nom')
-let prenom=document.querySelectorAll('#prenom')
+let patients=document.querySelectorAll('.patients')
+let mails=document.querySelectorAll('.mail')
+let nom=document.querySelectorAll('.nom')
+let prenom=document.querySelectorAll('.prenom')
 let recherche=document.getElementById("rechercher")
 window.addEventListener('scroll',function(){
     let y=window.scrollY
@@ -39,70 +39,58 @@ for(let i=0; i<taille.length;i++){
 }
 recherche.addEventListener('keyup',function(){
     patients.forEach(element => {
-        i=0;
-        n=recherche.value.length
         element.classList.add('nono')
-        console.log("1")
-        while(i<=element.innerHTML.length-n+1){
-            j=0
-            let mmai=1
-            while(j<n && mmai==1){
-                if(element.innerHTML[i+j]!=recherche.value[j]){
-                    mmai=0;
-                }
-                j++
-            }
-            if(mmai==1){
-                element.parentElement.parentElement.classList.remove('nono')
-            }
-            if(recherche.value==null){
-                element.parentElement.parentElement.classList.remove('nono')
-            }
-            i++
+        if(recherche.value==null){
+            element.classList.remove("nono")
         }
-    });
-    nom.forEach(element => {
-        i=0;
-        n=recherche.value.length
-        element.parentElement.parentElement.classList.add('nono')
-        while(i<=element.innerHTML.length-n+1){
-            j=0
-            let mnom=1
-            while(j<n && mnom==1){
-                if(element.innerHTML[i+j]!=recherche.value[j]){
-                    mnom=0;
+        else
+        {
+            i=0;
+            n=recherche.value.length
+            let nmail=element.querySelector(".mail").textContent
+            let nnom=element.querySelector(".nom").textContent
+            let nprenom=element.querySelector(".prenom").textContent
+            let nmaila=0
+            let nnoma=0
+            let nprenoma=0
+            while(i<=nmail.length-n+1 && nmaila==0){
+                j=0
+                nmaila=1
+                while(j<n && nmaila==1){
+                    if(nmail[i+j]!=recherche.value[j]){
+                    nmaila=0;
+                    }
+                    j++
                 }
-                j++
+                i++
             }
-            if(mnom==1){
-                element.parentElement.parentElement.classList.remove('nono')
-            }
-            if(recherche.value==null){
-                element.parentElement.parentElement.classList.remove('nono')
-            }
-            i++
-        }
-    });
-    prenom.forEach(element => {
-        i=0;
-        n=recherche.value.length
-        element.parentElement.parentElement.classList.add('nono')
-        while(i<=element.innerHTML.length-n+1){
-            j=0
-            let nprenom=1
-            while(j<n && nprenom==1){
-                if(element.innerHTML[i+j]!=recherche.value[j]){
-                    nprenom=0;
+            i=0
+            while(i<=nnom.length-n+1 && nnoma==0){
+                j=0
+                nnoma=1
+                while(j<n && nnoma==1){
+                    if(nnom[i+j]!=recherche.value[j]){
+                        nnoma=0;
+                    }
+                    j++
                 }
-                j++
+                i++
             }
-            if(nprenom==1){
-                element.parentElement.parentElement.classList.remove('nono')
+            i=0
+            while(i<=nprenom.length-n+1 && nprenoma==0){
+                j=0
+                nprenoma=1
+                while(j<n && nprenoma==1){
+                    if(nprenom[i+j]!=recherche.value[j]){
+                        nprenoma=0;
+                    }
+                    j++
+                }
+                i++
             }
-            if(recherche.value==null){
-                element.parentElement.parentElement.classList.remove('nono')
+            if(nmaila==1||nnoma==1||nprenoma==1){
+                element.classList.remove("nono")
             }
-            i++
         }
     });
 })

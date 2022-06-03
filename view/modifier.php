@@ -4,7 +4,7 @@
 require_once('../controller/function.php');
 require_once('../controller/medecin.php');
 require_once('../controller/patient.php');
-session_start();
+$patient=new patient;
 ?>
 <head>
     <meta charset="UTF-8">
@@ -14,9 +14,7 @@ session_start();
     <link rel="stylesheet"  href="../public/css/ajouter.css">
 </head>
 <body>
-    <?php if(empty($_SESSION)){
-            header('location:./connexion.php');
-        }
+    <?php $id=$_GET['id_patient'];
         ?>
     <header>
         <p id="p">starlike</p>
@@ -28,32 +26,53 @@ session_start();
         </nav>
     </header>
     <div id="description">
-        <h1> bienvenue sur </h1>
-        <h2> page d'ajout d'un patient </h2>
-        <p>veillez entrez les information relative a votre patient</p>
-        <p>a fin de facilité la gestion</p>
+        <?php if($patient->getid_image($id)==0):?>
+            <p class="profil">
+                <?php echo $patient->getnom($id)[0];
+                    echo $patient->getprenom($id)[0];
+                ?>
+            </p>
+        <?php else:?>
+            <img src="../public/image/<?php echo $image->getnom($patient->getid_image($id))?>" class="profil">
+        <?php endif?>
+        <div>
+            <h1> bienvenue sur </h1>
+            <h2> page de mise a jous </h2>
+            <p>veillez actualiser les informations relative a votre patient</p>
+            <p>a fin de facilité la gestion</p>
+        </div>
     </div>
     <div id="connec">
-        <h1 id="title">ajout des patient</h1>
-            <form action="ajoutetrait.php" method="POST" enctype="multipart/form-data">
+        <h1 id="title">mise a jour du patient <?php echo $patient->getnom($id)?></h1>
+            <form action="modifitrait.php?id=<?php echo $id?>" method="POST" enctype="multipart/form-data">
                 <div class="m">
                     <div>
-                        <input type="text" name="nom" id="nom" placeholder="nom" size="50">
+                        <input type="text" name="nom" id="nom" placeholder="nom" size="50" value="<?php echo $patient->getnom($id)?>">
                     </div>
                     <div>
-                        <input type="text" name="prenom" id="prenom" placeholder="prenom" size="50">
+                        <input type="text" name="prenom" id="prenom" placeholder="prenom" size="50" value="<?php echo $patient->getprenom($id)?>">
                     </div>
                 </div>
                 <div class="m">
                     <div>
-                        <input type="text" name="mail" id="mail" placeholder="mail" size="50">
+                        <input type="text" name="mail" id="mail" placeholder="mail" size="50" value="<?php echo $patient->getmail($id)?>">
                         <p id="error"></p>
                     </div>
                     <div id="date">
+                        <?php $a=$patient->getdatedenai($id)?>
                         <select name="année" id="année" onchange="getyear()">
+                            <option><?php echo $a[0],$a[1],$a[2],$a[3] ?></option>
                             <option>choisir une année</option>
                         </select>
-                        <select name="mois" id="mois" onchange="getmois()">
+                        <select name="mois" id="mois" onchange="getmois()"?>">
+                            <option valeur="13"><?php $b=$a[5].$a[6];
+                            $t=['janvier','fevrier','mars','avril','mai','juin','juillet','aout','septembre','octobre','novembre','decembre'];
+                            foreach($t as $clas=>$valeur){
+                               if($b==$clas+1){
+                                   $mois=$valeur;
+                               }
+                               } 
+                               echo $mois;?></option>
                             <option valeur="13">choisir un mois</option>
                             <option valeur="0">janvier</option>
                             <option valeur="1">fevrier</option>
@@ -69,17 +88,18 @@ session_start();
                             <option valeur="11">decembre</option>
                         </select>
                         <select name="jour" id="jour">
+                            <option><?php echo $a[8],$a[9] ?></option>
                             <option>choisir un jour</option>
                         </select>
                     </div>
                 </div>
                 <div class="m">
                     <div>
-                        <input type="text" name="taille" id="taille" placeholder="taille" size="5">
+                        <input type="text" name="taille" id="taille" placeholder="taille" size="5" value="<?php echo $patient->gettaille($id)?>">
                         <p id="error-taille"></p>
                     </div>
                     <div>
-                        <input type="text" name="poid" id="poid" placeholder="poid" size="5">
+                        <input type="text" name="poid" id="poid" placeholder="poid" size="5" value="<?php echo $patient->getpoid($id)?>">
                         <p id="error-poid"></p>
                     </div>
                 </div>
@@ -87,10 +107,22 @@ session_start();
                     <input type="file" name="image" id="image" placeholder="image" onchange="verifimage()">
                     <p id="errorr"></p>
                 </div>
-                <input type="submit" id="envoyer" value="envoyer" onclick="verificationtous()">
+                <input type="submit" id="envoyer" value="envoyer" onclick="verificationtouss()">
                 <p id="errou"></p>
             </form>
     </div>
+    <style>
+        #description{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        }
+        #description div{
+        position: absolute;
+        top:400px
+     }
+    </style>
 </body>
 <script src="../public/javascript/ajouter.js"></script>
 </html>

@@ -4,6 +4,7 @@
     require_once('../controller/image.php');
     $med=new medecin();
     $image=new image();
+    $patient=new patient();
 
     function verification(){
         global $med;
@@ -34,7 +35,7 @@
         if (isset($_FILES['image']) && $_FILES['image']['error'] == 0){
             return 1;
         // Testons si le fichier n'est pas trop gros
-            if ($_FILES['image']['size'] <= 500000000000)
+            if ($_FILES['image']['size'] <= 500000000)
             {
                     // Testons si l'extension est autorisée
                     $fileInfo = pathinfo($_FILES['image']['name']);
@@ -59,6 +60,17 @@
                         return 0;
                     }
             }
+        }
+    }
+    function afficheimg($id){
+        global $patient;
+        global $image;
+        $id_img=$patient->getid_image($id);
+        if($id_img==0){
+            return "patient_589302497_1000.jpg";
+        }
+        else{
+            return $image->getnom($id_img);
         }
     }
 ?>

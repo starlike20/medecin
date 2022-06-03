@@ -6,6 +6,7 @@
  $patient=new patient;
  $image=new image;
  $nom=$_POST['nom'];
+ $id_p=$_GET['id'];
  $prenom=$_POST['prenom'];
  $mail=$_POST['mail'];
  $année=$_POST['année'];
@@ -44,6 +45,6 @@ else{
     $i=0;
 }
 $a=$patient->tablepat();
-$patient->ajoutpatient($nom,$prenom,$mail,$ans,$poid,$taille,$id,$i);
+$patient->modifie($id_p,$nom,$prenom,$mail,$ans,$poid,$taille,$id,$i);
 header('location:ajoutpatient.php');
 ?>

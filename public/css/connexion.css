@@ -77,7 +77,7 @@
 /*---------------------gestion du profil-----------------*/
 .profil{
     position: absolute;
-    top:50px;
+    top:100px;
     margin: 10px;
     height: 200px;
     width: 200px;
@@ -138,7 +138,12 @@ nav a:last-child{
 .fauxmotdepasse{
     border-color: red;
     box-shadow: 0 0 0 0 red;
-    animation: change 2s infinite
+    animation: change 2s infinite;
+}
+.faux{
+    border-color: red;
+    box-shadow: 0 0 0 0 red;
+    animation: change 2s infinite;
 }
 @keyframes change{
     to{

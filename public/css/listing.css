@@ -52,6 +52,9 @@ nav a{
     flex-direction: column;
     justify-content: center;
 }
+nav a:last-child{
+    border-right: none;
+}
 #la{
     background-color: rgb(137, 54, 65);
 }
@@ -170,4 +173,8 @@ nav a{
 /*---------------------------none--------------------------------*/
 .nono{
     display: none;
+}
+/*-------------------------changer le lien---------------------*/
+.information a{
+    color: rgb(106, 90, 222);
 }

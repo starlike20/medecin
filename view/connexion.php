@@ -19,7 +19,7 @@ $med=new medecin();
         <nav>
             <a href="connexion.php" id="la">connexion</a>
             <a href="listing.php">listing</a>
-            <a href="ajouter.php">ajout</a>
+            <a href="ajoutpatient.php">ajout</a>
             <a href="profil.php">profil</a>
         </nav>
     </header>

@@ -86,10 +86,10 @@
             }
             return $t;
         }
-        public function ajoutpatient($nom,$prenom,$mail,$dtdenais,$poid,$taille,$id_med){//ajouter un patient
+        public function ajoutpatient($nom,$prenom,$mail,$dtdenais,$poid,$taille,$id_med,$idimg){//ajouter un patient
             global $connexion;
-            $requet="INSERT INTO `patient`(`nom`, `prenom`, `e-mail`, `date de naissance`, `poid`, `taille`, `id_medecin`)
-            VALUES('".$nom."','".$prenom."','".$mail."','".$dtdenais."','".$poid."','".$taille."','".$id_med."')";
+            $requet="INSERT INTO `patient`(`nom`, `prenom`, `e-mail`, `date de naissance`, `poid`, `taille`, `id_medecin`, `id_image`)
+            VALUES('".$nom."','".$prenom."','".$mail."','".$dtdenais."','".$poid."','".$taille."','".$id_med."','".$idimg."')";
             $result= $connexion->query($requet);
         }
         public function supprimepatient($i){
@@ -97,30 +97,34 @@
             $requet="DELETE  FROM `patient` WHERE `id`='".$i."'";;
             $result=$connexion->query($requet);
         }
-        public function modifie($i,$nom,$prenom,$mail,$dtdenais,$poid,$taille){
+        public function modifie($i,$nom,$prenom,$mail,$dtdenais,$poid,$taille,$idimg){
             global $connexion;
             if($nom!=$this->getnom($i)){
                 $requet="UPDATE `patient` set `nom`='".$nom."' where `id`='".$i."' ";
                 $result= $connexion->query($requet);
             }
-            if($nom!=$this->getprenom($i)){
+            if($prenom!=$this->getprenom($i)){
                 $requet="UPDATE `patient` set `prenom`='".$prenom."' where `id`='".$i."' ";
                 $result= $connexion->query($requet);
             }
-            if($nom!=$this->getmail($i)){
+            if($mail!=$this->getmail($i)){
                 $requet="UPDATE `patient` set `e-mail`='".$mail."' where `id`='".$i."' ";
                 $result= $connexion->query($requet);
             }
-            if($nom!=$this->getdatedenai($i)){
+            if($dtdenais!=$this->getdatedenai($i)){
                 $requet="UPDATE `patient` set `date de naissance`='".$dtdenais."' where `id`='".$i."' ";
                 $result= $connexion->query($requet);
             }
-            if($nom!=$this->getpoid($i)){
+            if($poid!=$this->getpoid($i)){
                 $requet="UPDATE `patient` set `poid`='".$poid."' where `id`='".$i."' ";
                 $result= $connexion->query($requet);
             }
-            if($nom!=$this->gettaille($i)){
+            if($taille!=$this->gettaille($i)){
                 $requet="UPDATE `patient` set `taille`='".$taille."' where `id`='".$i."' ";
+                $result= $connexion->query($requet);
+            }
+            if($idimg!=$this->getid_image($i) || $idimg!=0){
+                $requet="UPDATE `patient` set `id_image`='".$idimg."' where `id`='".$i."' ";
                 $result= $connexion->query($requet);
             }
         }

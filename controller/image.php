@@ -14,9 +14,9 @@
         }
         public function ajoutimage($nom){//ajouter un patient
             global $connexion;
-            $requet="INSERT INTO `image`(`nom`)
-            VALUES('".$nom.")";
-            $result= $connexion->query($requet);
+            $requet="INSERT INTO `image` (`nom`) 
+            VALUES('".$nom."')";
+            $connexion->query($requet);
         }
         public function tableimg(){//retourne un tableau de id
             global $connexion;
