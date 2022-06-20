@@ -46,5 +46,5 @@ else{
 }
 $a=$patient->tablepat();
 $patient->modifie($id_p,$nom,$prenom,$mail,$ans,$poid,$taille,$id,$i);
-header('location:ajoutpatient.php');
+header('location:listing.php');
 ?>

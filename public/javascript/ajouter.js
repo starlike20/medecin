@@ -7,7 +7,7 @@ let image=document.getElementById("image")
 let envoyer=document.getElementById("envoyer")
 let nom=document.getElementById("nom")
 let prenom=document.getElementById("prenom")
-let jours=document.getElementsByClassName("jours")
+let jours=document.querySelectorAll("jours")
 let date
 let a
 let valimage,valimail,valipoid,valitaill
@@ -35,7 +35,10 @@ function getyear(){
 }
 function getmois(){
     let mois=document.getElementById("mois").value
-    jours.innerHTML=null
+    let option=document.querySelectorAll('option')
+    jours.forEach(element => {
+        jour.removeChild(element);
+    });
     let t=['janvier','fevrier','mars','avril','mai','juin','juillet','aout','septembre','octobre','novembre','decembre']
     let o=[28,29,30,31];
     if(mois!="choisir un mois"){

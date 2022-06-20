@@ -21,7 +21,7 @@ $patient=new patient;
         <nav>
             <a href="connexion.php">connexion</a>
             <a href="listing.php">listing</a>
-            <a href="ajoutpatient.php"id="la">ajout</a>
+            <a href="ajoutpatient.php">ajout</a>
             <a href="profil.php">profil</a>
         </nav>
     </header>
@@ -70,9 +70,9 @@ $patient=new patient;
                             foreach($t as $clas=>$valeur){
                                if($b==$clas+1){
                                    $mois=$valeur;
+                                   echo $mois;
                                }
-                               } 
-                               echo $mois;?></option>
+                               } ?></option>
                             <option valeur="13">choisir un mois</option>
                             <option valeur="0">janvier</option>
                             <option valeur="1">fevrier</option>
@@ -112,6 +112,9 @@ $patient=new patient;
             </form>
     </div>
     <style>
+        .profil{
+        background-color: rgb(<?php echo rand(150,255) ?>, <?php echo rand(150,255) ?>, <?php echo rand(150,255) ?>);
+        }
         #description{
         display: flex;
         flex-direction: column;
